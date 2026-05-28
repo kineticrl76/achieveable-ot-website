@@ -23,7 +23,6 @@ const sensoryGym = [
 ];
 
 const littleChamps = [
-  { src: '/images/champs/IMG_0037-768x1024-640x640_c.jpeg', alt: 'Little Champ' },
   { src: '/images/champs/IMG_1131-scaled-640x640_c.jpeg', alt: 'Little Champ' },
   { src: '/images/champs/IMG_1582-scaled-640x640_c.jpeg', alt: 'Little Champ' },
   { src: '/images/champs/IMG_2539-scaled-640x640_c.jpeg', alt: 'Little Champ' },
