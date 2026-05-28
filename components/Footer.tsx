@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -8,12 +9,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center">
-                <span className="text-violet-900 text-sm font-bold">OT</span>
-              </div>
-              <span className="font-bold text-lg">
-                AchieveAble<span className="text-amber-400"> OT</span>
-              </span>
+              <Image
+                src="https://www.achieveableot.com/wp-content/uploads/2021/02/FINAL_AchieveAble-100px-300x233.png"
+                alt="AchieveAble OT logo"
+                width={56}
+                height={44}
+                className="object-contain brightness-0 invert"
+              />
             </div>
             <p className="text-violet-200 text-sm max-w-xs">
               Where Kids Become Achievers! Pediatric occupational therapy serving Queens and Western Nassau.

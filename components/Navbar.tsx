@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
@@ -24,12 +25,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 rounded-full bg-violet-600 flex items-center justify-center">
-              <span className="text-white text-sm font-bold">OT</span>
-            </div>
-            <span className="font-bold text-violet-800 text-lg leading-tight">
-              AchieveAble<span className="text-amber-500"> OT</span>
-            </span>
+            <Image
+              src="https://www.achieveableot.com/wp-content/uploads/2021/02/FINAL_AchieveAble-100px-300x233.png"
+              alt="AchieveAble OT logo"
+              width={48}
+              height={37}
+              className="object-contain"
+            />
           </Link>
 
           {/* Desktop nav */}
