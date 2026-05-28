@@ -26,7 +26,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
-              src="https://www.achieveableot.com/wp-content/uploads/2021/02/FINAL_AchieveAble-100px-300x233.png"
+              src="/images/FINAL_AchieveAble-100px-300x233.png"
               alt="AchieveAble OT logo"
               width={120}
               height={93}

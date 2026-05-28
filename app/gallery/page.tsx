@@ -7,46 +7,46 @@ export const metadata: Metadata = {
 };
 
 const sensoryGym = [
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/04/1Sensory-Gym1-scaled-640x640_c.jpg', alt: 'Sensory Gym' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/04/1Sensory-Gym2-scaled-640x640_c.jpg', alt: 'Sensory Gym' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/04/1Sensory-Gym3-scaled-640x640_c.jpg', alt: 'Sensory Gym' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/04/Gym-office-side3-scaled-640x640_c.jpg', alt: 'Clinic Space' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/04/Gym-office-side4-scaled-640x640_c.jpg', alt: 'Clinic Space' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/04/Gym-office-side-scaled-640x640_c.jpg', alt: 'Clinic Space' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/04/Gym-office-side2-640x640_c.jpg', alt: 'Clinic Space' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/02/IMG_3634-scaled-640x640_c.jpeg', alt: 'Therapy Session' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/02/IMG_3635-scaled-640x640_c.jpeg', alt: 'Therapy Session' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/02/IMG_3797-640x640_c.jpeg', alt: 'Therapy Session' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/02/IMG_3755-1024x652-640x640_c.jpg', alt: 'Therapy Session' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/02/IMG_3786-scaled-640x640_c.jpeg', alt: 'Therapy Session' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/02/IMG_4225-scaled-640x640_c.jpeg', alt: 'Therapy Session' },
+  { src: '/images/gym/1Sensory-Gym1-scaled-640x640_c.jpg', alt: 'Sensory Gym' },
+  { src: '/images/gym/1Sensory-Gym2-scaled-640x640_c.jpg', alt: 'Sensory Gym' },
+  { src: '/images/gym/1Sensory-Gym3-scaled-640x640_c.jpg', alt: 'Sensory Gym' },
+  { src: '/images/gym/Gym-office-side3-scaled-640x640_c.jpg', alt: 'Clinic Space' },
+  { src: '/images/gym/Gym-office-side4-scaled-640x640_c.jpg', alt: 'Clinic Space' },
+  { src: '/images/gym/Gym-office-side-scaled-640x640_c.jpg', alt: 'Clinic Space' },
+  { src: '/images/gym/Gym-office-side2-640x640_c.jpg', alt: 'Clinic Space' },
+  { src: '/images/gym/IMG_3634-scaled-640x640_c.jpeg', alt: 'Therapy Session' },
+  { src: '/images/gym/IMG_3635-scaled-640x640_c.jpeg', alt: 'Therapy Session' },
+  { src: '/images/gym/IMG_3797-640x640_c.jpeg', alt: 'Therapy Session' },
+  { src: '/images/gym/IMG_3755-1024x652-640x640_c.jpg', alt: 'Therapy Session' },
+  { src: '/images/gym/IMG_3786-scaled-640x640_c.jpeg', alt: 'Therapy Session' },
+  { src: '/images/gym/IMG_4225-scaled-640x640_c.jpeg', alt: 'Therapy Session' },
 ];
 
 const littleChamps = [
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_0037-768x1024-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_1131-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_1582-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_2539-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_2033-1024x768-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/Keva-1024x768-640x640_c.jpg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_9162-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_3511-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_0358-768x1024-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_2028-768x1024-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_2434-768x1024-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_4740-769x1024-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_4707-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_2129-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_2235-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_3279-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_3580-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_3615-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_3620-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_4484-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_6094-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_9102-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/IMG_9120-scaled-640x640_c.jpeg', alt: 'Little Champ' },
-  { src: 'https://www.achieveableot.com/wp-content/uploads/2021/03/1Kevin-new-766x1024-640x640_c.jpg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_0037-768x1024-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_1131-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_1582-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_2539-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_2033-1024x768-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/Keva-1024x768-640x640_c.jpg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_9162-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_3511-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_0358-768x1024-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_2028-768x1024-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_2434-768x1024-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_4740-769x1024-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_4707-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_2129-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_2235-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_3279-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_3580-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_3615-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_3620-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_4484-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_6094-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_9102-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/IMG_9120-scaled-640x640_c.jpeg', alt: 'Little Champ' },
+  { src: '/images/champs/1Kevin-new-766x1024-640x640_c.jpg', alt: 'Little Champ' },
 ];
 
 function PhotoGrid({ photos }: { photos: { src: string; alt: string }[] }) {
@@ -70,7 +70,6 @@ function PhotoGrid({ photos }: { photos: { src: string; alt: string }[] }) {
 export default function GalleryPage() {
   return (
     <>
-      {/* Header */}
       <section className="bg-gradient-to-br from-violet-900 to-violet-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="inline-block text-xs font-bold uppercase tracking-widest text-amber-400 mb-3">Take a Look Inside</div>
@@ -81,7 +80,6 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Sensory Gym */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
@@ -92,7 +90,6 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Little Champs */}
       <section className="py-16 bg-violet-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
