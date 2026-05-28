@@ -153,6 +153,53 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 bg-amber-100 px-3 py-1 rounded-full mb-4">
+              What Families Say
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Real Stories, Real Progress</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                quote: 'We enjoy the warm, friendly environment; gentle, hopeful, and joyful manner at AchieveAble OT.',
+                name: 'Jessica P.',
+                detail: 'Parent — saw improved writing and daily living skills in both sons',
+              },
+              {
+                quote: 'My son had sensory issues and delay in fine motor skills. He is now able to feed himself.',
+                name: 'Marna F.',
+                detail: 'Parent — noted improved grasp strength, object manipulation, and attention span',
+              },
+              {
+                quote: 'Layla loves playing with Miss Faye and she has made so much progress in catching up with developmental milestones.',
+                name: 'Kaitlin G.',
+                detail: "Parent — highlighted Layla's increased independence",
+              },
+              {
+                quote: 'Ynes loves her OT! They take the time to educate parents and discuss the plan of care.',
+                name: 'Pinky M.',
+                detail: 'Parent — noted decreased self-stimulatory behaviors and improved classroom integration',
+              },
+            ].map(({ quote, name, detail }) => (
+              <div key={name} className="p-6 rounded-2xl bg-violet-50 border border-violet-100 flex flex-col gap-4">
+                <svg className="w-8 h-8 text-violet-300 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <p className="text-gray-700 leading-relaxed italic flex-1">&ldquo;{quote}&rdquo;</p>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">{name}</p>
+                  <p className="text-gray-400 text-xs mt-0.5">{detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Booking CTA */}
       <section className="py-20 bg-gradient-to-r from-amber-500 to-amber-400">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
