@@ -20,19 +20,12 @@ export default function BookPage() {
         </div>
       </section>
 
-      {/* Setup Notice */}
-      <section className="bg-amber-50 border-b border-amber-200 py-4 px-4">
-        <div className="max-w-4xl mx-auto text-sm text-amber-800 text-center">
-          <strong>Site Owner:</strong> Replace <code className="bg-amber-100 px-1 rounded">YOUR_CALENDLY_USERNAME</code> below with your actual Calendly username (e.g., <code className="bg-amber-100 px-1 rounded">achieveableot</code>). Sign up free at calendly.com.
-        </div>
-      </section>
-
       {/* Calendly Embed */}
       <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className="calendly-inline-widget rounded-2xl overflow-hidden shadow-sm border border-gray-100"
-            data-url="https://calendly.com/YOUR_CALENDLY_USERNAME"
+            data-url="https://calendly.com/kineticrl76"
             style={{ minWidth: '320px', height: '700px' }}
           />
         </div>
