@@ -67,7 +67,7 @@ CALLBACK_REQUEST:{"name":"...","phone":"...","time":"...","reason":"..."}
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  const apiKey = env.GROQ_API_KEY;
+  const apiKey = env.groq;
   if (!apiKey) {
     return new Response(JSON.stringify({ error: 'Service unavailable' }), {
       status: 503,
