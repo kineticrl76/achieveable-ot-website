@@ -64,40 +64,122 @@ CALLBACK_REQUEST:{"name":"...","phone":"...","time":"...","reason":"..."}
 - Never discuss competitor practices
 - Always offer to help with something else after answering`;
 
+// --- Security config ---
+const MAX_MESSAGE_LENGTH = 500;
+const MAX_HISTORY_MESSAGES = 20;
+const RATE_LIMIT_MAX = 20;          // requests per IP per window
+const RATE_LIMIT_WINDOW_S = 3600;   // 1 hour in seconds
+
+const ALLOWED_ORIGINS = [
+  'https://achieveableot.com',
+  'https://www.achieveableot.com',
+  'http://localhost:3000',
+];
+
+// --- Helpers ---
+
+function corsHeaders(requestOrigin) {
+  const origin = ALLOWED_ORIGINS.includes(requestOrigin)
+    ? requestOrigin
+    : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Vary': 'Origin',
+  };
+}
+
+function json(data, status = 200, extraHeaders = {}) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: { 'Content-Type': 'application/json', ...extraHeaders },
+  });
+}
+
+// KV-backed sliding-window rate limiter (optional — skipped if KV not bound)
+async function checkRateLimit(kv, ip) {
+  if (!kv) return true;
+
+  const key = `rate:${ip}`;
+  const now = Date.now();
+  const record = await kv.get(key, 'json');
+
+  if (!record || now - record.windowStart > RATE_LIMIT_WINDOW_S * 1000) {
+    await kv.put(key, JSON.stringify({ count: 1, windowStart: now }), {
+      expirationTtl: RATE_LIMIT_WINDOW_S,
+    });
+    return true;
+  }
+
+  if (record.count >= RATE_LIMIT_MAX) return false;
+
+  await kv.put(
+    key,
+    JSON.stringify({ count: record.count + 1, windowStart: record.windowStart }),
+    { expirationTtl: RATE_LIMIT_WINDOW_S }
+  );
+  return true;
+}
+
+// --- Request handlers ---
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
+  const origin = request.headers.get('Origin') ?? '';
+  const cors = corsHeaders(origin);
+
+  // Rate limiting
+  const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown';
+  const allowed = await checkRateLimit(env.RATE_LIMIT_KV, ip);
+  if (!allowed) {
+    return json(
+      { error: 'Too many requests. Please try again later.' },
+      429,
+      cors
+    );
+  }
+
   const apiKey = env.groq;
   if (!apiKey) {
-    return new Response(JSON.stringify({ error: 'Service unavailable' }), {
-      status: 503,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'Service unavailable' }, 503, cors);
   }
 
   let body;
   try {
     body = await request.json();
   } catch {
-    return new Response(JSON.stringify({ error: 'Invalid request' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'Invalid request body' }, 400, cors);
   }
 
   const { messages } = body;
+
   if (!Array.isArray(messages) || messages.length === 0) {
-    return new Response(JSON.stringify({ error: 'No messages provided' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'No messages provided' }, 400, cors);
+  }
+
+  // Cap conversation history to prevent bloated payloads
+  const history = messages.slice(-MAX_HISTORY_MESSAGES);
+
+  // Validate each message
+  for (const msg of history) {
+    if (!['user', 'assistant'].includes(msg.role)) {
+      return json({ error: 'Invalid message role' }, 400, cors);
+    }
+    if (typeof msg.content !== 'string') {
+      return json({ error: 'Invalid message content' }, 400, cors);
+    }
+    if (msg.content.length > MAX_MESSAGE_LENGTH) {
+      return json({ error: 'Message too long (500 character limit)' }, 400, cors);
+    }
   }
 
   const groqPayload = {
     model: 'llama-3.3-70b-versatile',
     messages: [
       { role: 'system', content: SYSTEM_PROMPT },
-      ...messages.map((m) => ({ role: m.role, content: m.content })),
+      ...history.map((m) => ({ role: m.role, content: m.content })),
     ],
     max_tokens: 512,
     temperature: 0.7,
@@ -115,10 +197,7 @@ export async function onRequestPost(context) {
   if (!groqRes.ok) {
     const err = await groqRes.text();
     console.error('Groq error:', err);
-    return new Response(JSON.stringify({ error: 'AI service error' }), {
-      status: 502,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'AI service error' }, 502, cors);
   }
 
   const groqData = await groqRes.json();
@@ -135,29 +214,20 @@ export async function onRequestPost(context) {
     }
   }
 
-  // Strip the hidden JSON block from the visible reply
   const cleanText = text.replace(/CALLBACK_REQUEST:\{.*?\}/s, '').trim();
 
-  // Fire callback email if data captured and Resend key is configured
   if (callbackData && env.RESEND_API_KEY) {
     await sendCallbackEmail(callbackData, env.RESEND_API_KEY);
   }
 
-  return new Response(JSON.stringify({ reply: cleanText, callbackCaptured: !!callbackData }), {
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    },
-  });
+  return json({ reply: cleanText, callbackCaptured: !!callbackData }, 200, cors);
 }
 
-export async function onRequestOptions() {
+export async function onRequestOptions(context) {
+  const origin = context.request.headers.get('Origin') ?? '';
   return new Response(null, {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    },
+    status: 204,
+    headers: corsHeaders(origin),
   });
 }
 
